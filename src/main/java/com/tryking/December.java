@@ -1,6 +1,8 @@
 package com.tryking;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.PrimitiveIterator;
 
 /**
@@ -110,4 +112,43 @@ public class December {
         }
         return Distance;
     }
+
+    /**
+     * 476. Number Complement
+     * Given a positive integer, output its complement number.
+     * The complement strategy is to flip the bits of its binary representation.
+     * 借助便捷器调试做出来了，但是性能不好，取反，取补这些知识不熟
+     *
+     * @param num
+     * @return
+     */
+    public int findComplement(int num) {
+        String binary = "";
+        while (num > 0) {
+            binary = binary + String.valueOf(num % 2);
+            num = num / 2;
+        }
+        int result = 0;
+
+        for (int i = binary.length() - 1; i >= 0; i--) {
+            int temp = 1;
+            if (binary.charAt(i) == '0') {
+                for (int j = 0; j < i; j++) {
+                    temp = temp * 2;
+                }
+                result += temp;
+            } else {
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 627. Swap Salary
+     * Given a table salary, such as the one below, that has m=male and f=female values.
+     * Swap all f and m values (i.e., change all f values to m and vice versa) with a single update query and no intermediate
+     * temp table.
+     * 查了很久的语法才写对
+     * // update salary set sex= case when sex='m' then 'f' else 'm' end;
+     */
 }

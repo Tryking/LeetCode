@@ -1,5 +1,8 @@
 import com.tryking.December;
 
+import java.util.List;
+import java.util.function.IntBinaryOperator;
+
 /**
  * 测试
  *
@@ -8,7 +11,9 @@ import com.tryking.December;
  */
 public class Tst {
     public static void main(String[] args) {
-        int i = new December().arrayPairSum1(new int[]{1, 4, 3, 2});
-        System.out.println(i);
+        List<Integer> integers = new December().selfDividingNumbers(1, 22);
+        for (int i = 0; i < integers.size(); i++) {
+            System.out.println(integers.get(i));
+        }
     }
 }
