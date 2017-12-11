@@ -79,6 +79,14 @@ public class December {
     }
 
     /**
+     * 595. Big Countries
+     * select name,population,area from World where area>3000000 or population>25000000
+     * 一次Accept，题目简单
+     *
+     * @date 2017/12/11
+     */
+
+    /**
      * 461.Hamming Distance
      * <p>
      * The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
@@ -151,4 +159,71 @@ public class December {
      * 查了很久的语法才写对
      * // update salary set sex= case when sex='m' then 'f' else 'm' end;
      */
+
+    /**
+     * 657. Judge Route Circle
+     * <p>
+     * Initially, there is a Robot at position (0, 0).
+     * Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place.
+     * <p>
+     * The move sequence is represented by a string. And each move is represent by a character.
+     * The valid robot moves are R (Right), L (Left), U (Up) and D (down). The output should be true or false representing whether the robot makes a circle.
+     * <p>
+     * 只打败14%的人（把if换成switch能提高到45%）
+     *
+     * @date 2017/12/12
+     **/
+
+    public boolean judgeCircle(String moves) {
+        int[] result = new int[4];
+        for (int i = 0; i < moves.length(); i++) {
+            if (moves.charAt(i) == 'R') {
+                result[0] += 1;
+            } else if (moves.charAt(i) == 'L') {
+                result[1] += 1;
+            } else if (moves.charAt(i) == 'U') {
+                result[2] += 1;
+            } else if (moves.charAt(i) == 'D') {
+                result[3] += 1;
+            }
+        }
+        if (result[0] != result[1] || result[2] != result[3]) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
+    /**
+     * 网上答案，打败75%的人
+     *
+     * @param moves
+     * @return
+     */
+    public boolean judgeCircle0(String moves) {
+        if (moves.length() % 2 != 0) {
+            return false;
+        }
+        int countV = 0;
+        int countH = 0;
+        for (char letter : moves.toCharArray()) {
+            switch (letter) {
+                case 'U':
+                    countV++;
+                    break;
+                case 'D':
+                    countV--;
+                    break;
+                case 'L':
+                    countH++;
+                    break;
+                case 'R':
+                    countH--;
+                    break;
+            }
+        }
+        return countV == 0 && countH == 0;
+    }
+
 }
