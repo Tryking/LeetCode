@@ -8,7 +8,6 @@ import com.tryking.December;
  */
 public class Tst {
     public static void main(String[] args) {
-        String s = "";
-        boolean b = s.charAt(2) == '3';
+        String[] strings = new String[32];
     }
 }

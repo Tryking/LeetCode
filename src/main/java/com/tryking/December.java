@@ -175,6 +175,7 @@ public class December {
      **/
 
     public boolean judgeCircle(String moves) {
+        //也可以定义length=2的数组，左加1，右减1，最终看是否为0
         int[] result = new int[4];
         for (int i = 0; i < moves.length(); i++) {
             if (moves.charAt(i) == 'R') {
@@ -225,5 +226,88 @@ public class December {
         }
         return countV == 0 && countH == 0;
     }
+
+    /**
+     * 88. Merge Sorted Array
+     * Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+     * <p>
+     * Note:
+     * You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.
+     * The number of elements initialized in nums1 and nums2 are m and n respectively.
+     * <p>
+     * 未通过，理解不了需求。
+     *
+     * @date 2017/12/12
+     */
+    class Solution {
+        public void merge(int[] nums1, int m, int[] nums2, int n) {
+            int index = 0;
+            for (int i = 0; i < nums2.length; i++) {
+                while (index <= m) {
+                    if (nums2[i] > nums1[index]) {
+                        for (int j = nums1.length - 1; j > index; j--) {
+                            nums1[j] = nums1[j - 1];
+                        }
+                        nums1[index] = nums2[i];
+                        index++;
+                        break;
+                    }
+                    index++;
+                }
+            }
+            int i = 0;
+            int temp;
+            while (i < nums1.length - 1 - i) {
+                temp = nums1[i];
+                nums1[i] = nums1[nums1.length - 1 - i];
+                nums1[nums1.length - 1 - i] = temp;
+            }
+        }
+    }
+
+    /**
+     * 557. Reverse Words in a String III
+     * Given a string, you need to reverse the order of characters in each word within a sentence
+     * while still preserving whitespace and initial word order.
+     *
+     * @param s
+     * @return
+     * @date 2017/12/12
+     * your runtime beats 28.61% of java submissions.
+     */
+    public String reverseWords(String s) {
+        StringBuilder sb = new StringBuilder();
+        StringBuilder temp = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == ' ') {
+                sb.append(temp.reverse().toString()).append(" ");
+                temp.setLength(0);
+            } else if (i == s.length() - 1) {
+                temp.append(s.charAt(i));
+                sb.append(temp.reverse().toString());
+            } else {
+                temp.append(s.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Your runtime beats 81% of java submissions.(这个百分数会不断变化，不是很准)
+     */
+    public String reverseWords1(String s) {
+        String[] split = s.split(" ");
+        StringBuilder sb = new StringBuilder();
+        StringBuilder s1 = new StringBuilder();
+        for (int i = 0; i < split.length - 1; i++) {
+            sb.append(split[i]);
+            s1.append(sb.reverse().toString()).append(" ");
+            sb.setLength(0);
+        }
+        sb.append(split[split.length - 1]);
+        s1.append(sb.reverse().toString());
+        return s1.toString();
+    }
+
 
 }
