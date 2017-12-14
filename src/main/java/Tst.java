@@ -1,5 +1,8 @@
 import com.tryking.December;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 测试
  *
@@ -8,6 +11,7 @@ import com.tryking.December;
  */
 public class Tst {
     public static void main(String[] args) {
-        String[] strings = new String[32];
+        List objects = new ArrayList<>();
+        String[] objects1 = (String[])objects.toArray();
     }
 }

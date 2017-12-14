@@ -272,7 +272,7 @@ public class December {
      *
      * @param s
      * @return
-     * @date 2017/12/12
+     * @date 2017/12/13
      * your runtime beats 28.61% of java submissions.
      */
     public String reverseWords(String s) {
@@ -307,6 +307,72 @@ public class December {
         sb.append(split[split.length - 1]);
         s1.append(sb.reverse().toString());
         return s1.toString();
+    }
+
+    /**
+     * 500. Keyboard Row
+     * Given a List of words, return the words that can be typed using letters of alphabet on only one row's of American keyboard like the image below.
+     *
+     * @param words
+     * @return Your runtime beats 30.12 % of java submissions.
+     * @date 2017/12/12
+     */
+    public String[] findWords(String[] words) {
+        String row1 = "QWERTYUIOP";
+        String row11 = row1.toLowerCase();
+        String r1 = row1 + row11;
+
+
+        row1 = "ASDFGHJKL";
+        row11 = row1.toLowerCase();
+        String r2 = row1 + row11;
+
+
+        row1 = "ZXCVBNM";
+        row11 = row1.toLowerCase();
+        String r3 = row1 + row11;
+
+        List<String> result = new ArrayList<String>();
+
+        for (int i = 0; i < words.length; i++) {
+            int tag = 9;
+            int wordLen = 0;
+            for (int j = 0; j < words[i].length(); j++) {
+                if (j == 0) {
+                    if (r1.indexOf(words[i].charAt(0)) >= 0) {
+                        tag = 1;
+                    } else if (r2.indexOf(words[i].charAt(0)) >= 0) {
+                        tag = 2;
+                    } else if (r3.indexOf(words[i].charAt(0)) >= 0) {
+                        tag = 3;
+                    }
+                } else {
+                    int isCon = 0;
+                    switch (tag) {
+                        case 1:
+                            isCon = r1.indexOf(words[i].charAt(j));
+                            wordLen++;
+                            break;
+                        case 2:
+                            isCon = r2.indexOf(words[i].charAt(j));
+                            wordLen++;
+                            break;
+                        case 3:
+                            isCon = r3.indexOf(words[i].charAt(j));
+                            wordLen++;
+                            break;
+                    }
+                    if (isCon < 0) {
+                        break;
+                    }
+                }
+                if (wordLen == words[i].length() - 1) {
+                    result.add(words[i]);
+                }
+            }
+        }
+        return result.toArray(new String[result.size()]);
+
     }
 
 
