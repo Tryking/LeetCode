@@ -6,10 +6,11 @@
 
 *按照Difficulty进行排序*
 
-| #		| Title					| Tag				|Difficulty
-| :---	| :---------------------| :-----------------|
-| 344	| [Reverse String][344]	| ready				|Easy
-| 412	| [Fizz Buzz][412]		| ready				|Easy
+| #		| Title                 | Tag               |Difficulty|
+| :---  | :---------------------| :-----------------|----------|        
+| 344   | [Reverse String][344] | ready             |Easy      |
+| 412   | [Fizz Buzz][412]      | ready             |Easy      |
+
 
 
 [344]: problems/notes/top_interview_questions/344
