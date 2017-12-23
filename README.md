@@ -6,11 +6,11 @@
 
 *按照Difficulty进行排序*
 
-| #		| Title                 | Tag               |Difficulty|remark|
-| :---  | :---------------------| :-----------------|----------|      |  
-| 344   | [Reverse String][344] | ready             |Easy      |      |
-| 412   | [Fizz Buzz][412]      | ready             |Easy      |      |
-| 136   | [Single Number][136]               | ready             |Easy      |未搞清 |
+| #		| Title                 | Tag               | Difficulty | remark|
+| :---  | :---------------------| :-----------------| :----------| :-----|  
+| 344   | [Reverse String][344] | ready             | Easy       |       |
+| 412   | [Fizz Buzz][412]      | ready             | Easy       |       |
+| 136   | [Single Number][136]  | ready             | Easy       |未搞清  |
 
 
 
